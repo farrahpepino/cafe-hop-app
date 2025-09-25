@@ -5,108 +5,29 @@
     <br>
     <div class="post">
         <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
+        <div class="subtext">Café Hop</div>
+        <div class="subtext">New York City</div>
         <br>
         <div>This spot is so good</div>
     </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    
-    <div class="post">
-        <strong>Farrah Pepino</strong>
-        <div class="subtext">Café Hop, New York City</div>
-        <br>
-        <div>This spot is so good</div>
-    </div>
-    
     
 </div>
 </div>
 
-<button type="button" class="circle bt bg-white black">+</button>
+<button type="button" class="circle bt bg-white black" (click)="viewForm()">+</button>
+
+<div class="post-form" *ngIf="showForm">
+    <div class="flex-row">
+        <div>Add a review</div>
+        <button type="button" class="bg-t" (click)="viewForm()">X</button>
+    </div>
+
+    <form class="flex-col" (ngSubmit)="submitForm()">
+        <input type="text" placeholder="Café name"/>
+        <input type="text" placeholder="Location">
+        <input type="text" placeholder="Write a review">
+        <button type="submit">Post</button>
+        <!-- ratings here -->
+    </form>
+
+</div>

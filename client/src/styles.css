@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background-color: #534533;
+    background-color: #171717;
     font-family: Arial;
     color: white;
 }
@@ -43,6 +43,20 @@ button{
 
 .child{
     position: fixed;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 10px;
 }
 
 input{
