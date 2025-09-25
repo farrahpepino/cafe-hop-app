@@ -1,0 +1,9 @@
+<div class="parent">
+    <div class="header">café hop</div>
+    <div class="child">
+        <app-login *ngIf="showLogin"/>
+        <app-register *ngIf="!showLogin"/>
+        <p class="subtext">{{showLogin ? "Don't have an account?": "Already have an account?" }}<button type="button" class="bg-t bt" (click)="viewLogin()">{{showLogin ? "Register." : "Log in."}}</button></p>
+    </div>
+</div>
+

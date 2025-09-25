@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    background-color: #534533;
+    font-family: Arial;
+    color: white;
+}
+
+.black{
+    color: black;
+}
+
+.bg-blur{
+    background-color: rgb(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+}
+
+.bg-gray{
+    background-color: #212121;
+}
+
+.bg-t{
+    background-color: transparent;
+}
+
+button{
+    background-color: #212121;
+    color: white;
+    padding: 15px;
+    border-radius: 24px;
+    outline: none;
+    border: none;
+}
+
+.circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%:
+}
+
+.child{
+    position: fixed;
+}
+
+input{
+    padding: 15px;
+    border-radius: 24px;
+    outline: none;
+    border: none;
+    background-color: rgb(0,0,0,0.5);
+    color: white;
+}
+
+.parent{
+    position: relative;
+    background-image: url("https://i.pinimg.com/1200x/7c/63/4b/7c634bff27f5e04a54329f354f0c51cf.jpg");
+    width: 100vw;
+    height: 100vh;
+}
+
+.parent::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(6px);
+}
+
+.red{
+    color: red;
+}
+
+.subtext{
+    font-size: 14px;
+}
+
+.underline{
+    text-decoration: underline;
+}
