@@ -22,6 +22,10 @@ body{
     background-color: transparent;
 }
 
+.bg-white{
+    background-color: white;
+}
+
 button{
     background-color: #212121;
     color: white;
@@ -55,6 +59,7 @@ input{
     background-image: url("https://i.pinimg.com/1200x/7c/63/4b/7c634bff27f5e04a54329f354f0c51cf.jpg");
     width: 100vw;
     height: 100vh;
+    contain: content;
 }
 
 .parent::before {
@@ -76,3 +81,4 @@ input{
 .underline{
     text-decoration: underline;
 }
+
