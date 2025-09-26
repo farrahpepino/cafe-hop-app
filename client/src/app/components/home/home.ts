@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Navbar } from '../navbar/navbar';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup , FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-home',

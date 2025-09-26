@@ -1,8 +1,8 @@
-<form (ngSubmit)="submitForm()">
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email" />
-    <input type="password" placeholder="Password" /> 
+<form (ngSubmit)="submitForm()" [formGroup]="registerForm">
+    <input required type="text" placeholder="Name" formControlName="name">
+    <input required type="email" placeholder="Email" formControlName="email" />
+    <input required type="password" placeholder="Password" formControlName="password" /> 
     <p class="subtext red">Password must match.</p>
-    <input type="password" placeholder="Confirm password">
-    <button type="submit">sign up</button>
+    <input required type="password" placeholder="Confirm password" formControlName="confirmPassword" >
+    <button type="submit" [disabled]="registerForm.invalid">sign up</button>
 </form>

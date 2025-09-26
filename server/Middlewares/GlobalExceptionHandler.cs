@@ -1,12 +1,12 @@
-using Microsoft.Extenstions.Logging;
+using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 
 namespace server.Middlewares{
-    public class GlobalExceptionHander{
-        private readonly RequestDelegate _context;
-        private readonly ILogger<GlobalExceptionHander> _logger;
-        public GlobalExceptionHander (RequestDelegate context, ILogger<GlobalExceptionHander> logger){
-            _context = context;
+    public class GlobalExceptionHandler{
+        private readonly RequestDelegate _next;
+        private readonly ILogger<GlobalExceptionHandler> _logger;
+        public GlobalExceptionHandler (RequestDelegate next, ILogger<GlobalExceptionHandler> logger){
+            _next = next;
             _logger = logger;
         }
 

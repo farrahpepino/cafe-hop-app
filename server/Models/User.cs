@@ -1,8 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace server.Models{
+    [Table("Users")]
     public class User{
         [Key]
         [Column(TypeName="varchar(36)")]
-        public required string Id {get;set;}= Guid.NewGuid.ToString();
+        public required string Id {get;set;}= Guid.NewGuid().ToString();
 
         [Required]
         [MaxLength(70)]

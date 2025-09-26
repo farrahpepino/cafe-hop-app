@@ -10,7 +10,7 @@ namespace server.Data{
 
         protected override  void OnModelCreating(ModelBuilder modelBuilder){
             modelBuilder.Entity<User>()
-            .Property(user=>user.Email)
+            .HasIndex(user=>user.Email) //diff between property and hasindex
             .IsUnique();
         }
     }
