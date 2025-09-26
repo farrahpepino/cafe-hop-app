@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormControl, FormGroup , FormsModule, Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Auth } from '../../../Services/auth';
-import { User } from '../../../Models/User';
+import { UserModel } from '../../../Models/UserModel';
 @Component({
   selector: 'app-register',
   imports: [FormsModule, ReactiveFormsModule, CommonModule],
@@ -30,7 +30,7 @@ export class Register {
       return;
     }
 
-    var user: User = {
+    var user: UserModel = {
       name: this.registerForm.value.name!,
       email: this.registerForm.value.email!,
       password: this.registerForm.value.password!

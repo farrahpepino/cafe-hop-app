@@ -1,7 +1,8 @@
-export interface Post{
+export interface PostModel{
     id?: string;
     cafeName: string;
-    name: string;
+    userId: string;
+    name?: string;
     location: string;
     content: string;
     createdAt?: Date;

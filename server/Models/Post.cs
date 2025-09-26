@@ -12,6 +12,9 @@ namespace server.Models{
         [MaxLength(70)]
         public string CafeName {get;set;}
 
+        [Required]
+        public string UserId {get;set;}
+        
         public User user {get;set;}
 
         [Required]
@@ -26,3 +29,6 @@ namespace server.Models{
         public DateTime CreatedAt {get;set;}= DateTime.Now;
     }
 }
+
+
+// add userid for foreign key

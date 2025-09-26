@@ -22,11 +22,11 @@
         <button type="button" class="bg-t" (click)="viewForm()">X</button>
     </div>
     <br>
-    <form class="flex-col" (ngSubmit)="submitForm()">
-        <input type="text" placeholder="Café name"/>
-        <input type="text" placeholder="Location">
-        <input type="text" placeholder="Write a review">
-        <button type="submit">Post</button>
+    <form class="flex-col" (ngSubmit)="submitForm()" [formGroup]="postForm">
+        <input required type="text" placeholder="Café name" formControlName="cafeName"/>
+        <input required type="text" placeholder="Location" formControlName="location">
+        <input required type="text" placeholder="Write a review" formControlName="content">
+        <button [disabled]="postForm.invalid" type="submit">Post</button>
         <!-- ratings here -->
     </form>
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginDto } from '../Models/LoginDto';
-import { User } from '../Models/User';
+import { UserModel } from '../Models/UserModel';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class Auth {
     });
   }
   
-  registerUser(user: User): Observable<string>{
+  registerUser(user: UserModel): Observable<string>{
     return this.http.post<string>(`${this.apiUrl}/register`, user, { responseType: 'text' as 'json' });
   }
 
