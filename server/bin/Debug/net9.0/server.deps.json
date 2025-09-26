@@ -10,6 +10,7 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.9",
+          "Microsoft.AspNetCore.Authorization": "9.0.9",
           "Microsoft.AspNetCore.Mvc": "2.3.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.9",
@@ -110,16 +111,23 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authorization/2.3.0": {
+      "Microsoft.AspNetCore.Authorization/9.0.9": {
         "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "9.0.9",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.9",
           "Microsoft.Extensions.Options": "9.0.9"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.42003"
+          }
         }
       },
       "Microsoft.AspNetCore.Authorization.Policy/2.3.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Abstractions": "2.3.0",
-          "Microsoft.AspNetCore.Authorization": "2.3.0"
+          "Microsoft.AspNetCore.Authorization": "9.0.9"
         }
       },
       "Microsoft.AspNetCore.Cors/2.3.0": {
@@ -211,6 +219,14 @@
           "Microsoft.Extensions.Localization.Abstractions": "8.0.11",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.9",
           "Microsoft.Extensions.Options": "9.0.9"
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/9.0.9": {
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.42003"
+          }
         }
       },
       "Microsoft.AspNetCore.Mvc/2.3.0": {
@@ -1609,12 +1625,12 @@
       "path": "microsoft.aspnetcore.authentication.jwtbearer/9.0.9",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.9.0.9.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authorization/2.3.0": {
+    "Microsoft.AspNetCore.Authorization/9.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2/aBgLqBXva/+w8pzRNY8ET43Gi+dr1gv/7ySfbsh23lTK6IAgID5MGUEa1hreNIF+0XpW4tX7QwVe70+YvaPg==",
-      "path": "microsoft.aspnetcore.authorization/2.3.0",
-      "hashPath": "microsoft.aspnetcore.authorization.2.3.0.nupkg.sha512"
+      "sha512": "sha512-OVUDsnJDBhCuyJtjkQXObWbBGjh4kyxL/pl/5RqtZHnSJcpEr1eD6l4vbFIdRHg4bFI59vTTrfHKQ3zwfR4KCw==",
+      "path": "microsoft.aspnetcore.authorization/9.0.9",
+      "hashPath": "microsoft.aspnetcore.authorization.9.0.9.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization.Policy/2.3.0": {
       "type": "package",
@@ -1720,6 +1736,13 @@
       "sha512": "sha512-91LqEBTZnV8xkn56f2y3q6q4Lo+TgzxFkz72+zRzWR4tVwtGisqa/Rjjkvc5rJAnz6tAbuqiddKl03pAIUVrtQ==",
       "path": "microsoft.aspnetcore.localization/2.3.0",
       "hashPath": "microsoft.aspnetcore.localization.2.3.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/9.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AiIVl/wZOk5TeJjQrLltG6BdZ5wNywqB+48tGxZpNL151YKuc+5/e/h1q9lthNdFGnWPHOclA3o06WfFrCGa7A==",
+      "path": "microsoft.aspnetcore.metadata/9.0.9",
+      "hashPath": "microsoft.aspnetcore.metadata.9.0.9.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc/2.3.0": {
       "type": "package",

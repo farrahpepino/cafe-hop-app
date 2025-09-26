@@ -1,10 +1,12 @@
 using server.Models;
 using server.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace server.Controllers{
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class PostController: ControllerBase{
         private readonly PostService _service;
         public PostController(PostService service){
