@@ -6,7 +6,7 @@ namespace server.Models{
     public class Post{
         [Key]
         [Column(TypeName="varchar(36)")]
-        public required string Id {get;set;}= Guid.NewGuid().ToString();
+        public string Id {get;set;}= Guid.NewGuid().ToString();
 
         [Required]
         [MaxLength(70)]

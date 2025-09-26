@@ -8,3 +8,4 @@ namespace server.Models{
         public DateTime CreatedAt {get;set;}
     }
 }
+

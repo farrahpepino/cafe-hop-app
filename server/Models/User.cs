@@ -6,7 +6,7 @@ namespace server.Models{
     public class User{
         [Key]
         [Column(TypeName="varchar(36)")]
-        public required string Id {get;set;}= Guid.NewGuid().ToString();
+        public string Id {get;set;}= Guid.NewGuid().ToString();
 
         [Required]
         [MaxLength(70)]
@@ -17,7 +17,7 @@ namespace server.Models{
         public string Email {get;set;}
 
         [Required]
-        [MaxLength(64)]
+        [MaxLength(1000)]
         public string Password {get;set;}
 
         [Required]

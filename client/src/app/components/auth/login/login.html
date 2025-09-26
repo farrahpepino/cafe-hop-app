@@ -2,4 +2,5 @@
     <input required type="email" placeholder="Email" formControlName="email" />
     <input required type="password" placeholder="Password" formControlName="password"  /> 
     <button type="submit" [disabled]="loginForm.invalid">sign in</button>
+    <p class="subtext red" *ngIf="isLoggedIn==false">Invalid email/password.</p>
 </form>

@@ -1,8 +1,11 @@
 <form (ngSubmit)="submitForm()" [formGroup]="registerForm">
+    <p class="subtext red" *ngIf="(registerForm.get('name')?.value || '').length > 0 && (registerForm.get('name')?.value || '').length < 6 && registerForm.get('name')?.touched">Name must be at least 8 characters long.</p>
     <input required type="text" placeholder="Name" formControlName="name">
+    <p class="subtext red" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">Invalid email.</p>
     <input required type="email" placeholder="Email" formControlName="email" />
+    <p class="subtext red" *ngIf="(registerForm.get('password')?.value || '').length > 0 && (registerForm.get('password')?.value || '').length < 8 && registerForm.get('password')?.touched">Password must be at least 8 characters long.</p>
     <input required type="password" placeholder="Password" formControlName="password" /> 
-    <p class="subtext red">Password must match.</p>
+    <p class="subtext red" *ngIf="registerForm.get('password')?.value!=registerForm.get('confirmPassword')?.value && registerForm.get('confirmPassword')?.touched">Password must match.</p>
     <input required type="password" placeholder="Confirm password" formControlName="confirmPassword" >
     <button type="submit" [disabled]="registerForm.invalid">sign up</button>
 </form>

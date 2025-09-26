@@ -14,8 +14,8 @@ namespace server.Controllers{
             _service = service;
         }
 
-        [HttpGet("email")]
-        public async Task<IActionResult> GetUser(string email){
+        [HttpGet("get-user")]
+        public async Task<IActionResult> GetUser([FromQuery] string email){
             var user = await _service.GetUser(email);
             if(user==null){
                 return NotFound();

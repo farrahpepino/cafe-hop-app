@@ -68,7 +68,7 @@ builder.Services.AddAuthentication(options =>
 var app = builder.Build();
 
 app.UseMiddleware<GlobalExceptionHandler>();
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseCors("AllowAngularDev"); 
 app.MapControllers();
 

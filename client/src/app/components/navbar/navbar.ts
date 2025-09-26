@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class Navbar {
   constructor(private router: Router){}
   logout(){
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 
