@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 import { Auth } from '../../../Services/auth';
 import { LoginDto } from '../../../Models/LoginDto';
 import { UserData } from '../../../Services/user-data';
-
-
+//what ive learned. you can only store strings with localstorage hence you need to stringigy the data before saving it then parse it when you retrieve it
 @Component({
   selector: 'app-login',
   imports: [FormsModule, ReactiveFormsModule, CommonModule],
