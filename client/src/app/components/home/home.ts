@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Navbar } from '../navbar/navbar';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormGroup , FormsModule} from '@angular/forms';
@@ -13,10 +13,18 @@ import { PostModel } from '../../Models/PostModel';
   styleUrl: './home.css'
 })
 
-export class Home {
+export class Home implements OnInit {
+  constructor (private postService: Post){}
+  posts: PostModel[] | null = null;
+
+  ngOnInit(): void {
+      this.postService.getAllPosts().subscribe(
+        {next: (data: PostModel[]) => {this.posts=data;}}
+      )
+  }
+
   showForm = false;
   loggedInUser: UserModel  = JSON.parse(localStorage.getItem("loggedInUser")!);
-  constructor (private postService: Post){}
 
   postForm = new FormGroup({
     cafeName: new FormControl(''),
@@ -41,8 +49,22 @@ export class Home {
       content: this.postForm.value.content!
     }
 
-    this.showForm = false;
+    this.postService.createPost(post).subscribe({
+      next: (data)=> {
+        this.showForm = false;
+      },
+      error: (err) => console.error('Failed to post', err.error?.errors || err)
+    })
+  }
+
+  deletePost(id: string){
+    this.postService.deletePost(id).subscribe({
+      error: (err) => console.error('Failed to delete post', err.error?.errors || err)
+    });
   }
 }
 
 
+
+
+//need to add refresh

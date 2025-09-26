@@ -13,10 +13,12 @@ namespace server.Models{
         public string CafeName {get;set;}
 
         [Required]
+        [Column(TypeName = "varchar(36)")]
         public string UserId {get;set;}
-        
-        public User user {get;set;}
 
+        [ForeignKey("UserId")]
+        public User? User { get; set; }
+        
         [Required]
         [MaxLength(360)]
         public string Location {get;set;}

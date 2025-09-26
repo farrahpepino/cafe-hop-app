@@ -10,13 +10,17 @@ namespace server.Services{
             _repository = repository;
         }
 
-        public async Task<Post> CreatePost(Post post){
-            return await _repository.CreatePost(post);
+        public async Task CreatePost(Post post){
+            await _repository.CreatePost(post);
         }
 
-        public async Task<IEnumerable<Post>> GetAllPosts(){
+        public async Task<IEnumerable<PostDto>> GetAllPosts(){
             return await _repository.GetAllPosts();
         }   
+
+        public async Task DeletePost(string id){
+            await _repository.DeletePost(id);
+        }
         
     }
 }

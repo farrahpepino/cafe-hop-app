@@ -3,12 +3,13 @@
 <app-navbar/>
 <div class="container">
     <br>
-    <div class="post">
-        <strong>{{loggedInUser.name!}}</strong>
-        <div class="subtext">Café Hop</div>
-        <div class="subtext">New York City</div>
+    <div class="post" *ngFor="let post of posts">
+        <strong>{{post.name}}</strong>
+        <button type="button" (click)="deletePost(post.id!)">delete post</button>
+        <div class="subtext">{{post.cafeName}}</div>
+        <div class="subtext">{{post.location}}</div>
         <br>
-        <div>This spot is so good</div>
+        <div>{{post.content}}</div>
     </div>
     
 </div>

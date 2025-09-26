@@ -11,15 +11,32 @@ namespace server.Repositories{
             _context = context;
         }
 
-        public async Task<Post> CreatePost(Post post){
+        public async Task CreatePost(Post post){
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
-            return post;
-
         }
 
-        public async Task<IEnumerable<Post>> GetAllPosts(){
-            return await _context.Posts.ToListAsync();
+        public async Task<IEnumerable<PostDto>> GetAllPosts(){
+            return await _context.Posts
+                    .Include(post => post.User)
+                    .Select(post => new PostDto{
+                        Id= post.Id,
+                        CafeName = post.CafeName,
+                        Location = post.Location,
+                        Content = post.Content,
+                        CreatedAt = post.CreatedAt,
+                        UserId = post.UserId,
+                        Name = post.User.Name ?? string.Empty
+                    })
+                    .ToListAsync();
+        }
+
+        public async Task DeletePost(string id){
+             var post = await _context.Posts.FindAsync(id);
+            if (post != null){
+                _context.Posts.Remove(post);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

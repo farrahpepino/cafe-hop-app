@@ -14,9 +14,9 @@ namespace server.Controllers{
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost(Post post){
-            var createdPost = await _service.CreatePost(post);
-            return Ok(createdPost);
+        public async Task<IActionResult> CreatePost([FromBody] Post post){
+            await _service.CreatePost(post);
+            return Ok();
         }
 
         [HttpGet]
@@ -26,6 +26,12 @@ namespace server.Controllers{
                 return NoContent();
             }
             return Ok(posts);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeletePost([FromQuery] string id){
+            await _service.DeletePost(id);
+            return NoContent();
         }
 
     }
