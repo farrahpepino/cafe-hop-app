@@ -39,7 +39,7 @@ export class Register {
     this.authService.registerUser(user).subscribe({
       next: (data) => {
         localStorage.setItem('token', data);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home'], {replaceUrl: true});
       },
       error: (err) => console.error('Registration failed', err.error?.errors || err)
     });

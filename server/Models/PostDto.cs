@@ -5,6 +5,7 @@ namespace server.Models{
         public string UserId {get;set;}
         public string Name {get;set;}
         public string Location {get;set;}
+        public string Rate {get;set;}
         public string Content {get;set;}
         public DateTime CreatedAt {get;set;}
     }

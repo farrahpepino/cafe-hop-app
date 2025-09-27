@@ -35,9 +35,11 @@ export class Login {
       next: (data)=>    {
         localStorage.setItem('token', data);
         this.userService.getUser(user.email.trim().toLowerCase()).subscribe({
-          next: (data)=> {localStorage.setItem("loggedInUser", JSON.stringify(data))}
+          next: (data)=> {
+            localStorage.setItem("loggedInUser", JSON.stringify(data));
+            this.router.navigate(['/home'], {replaceUrl: true});
+          }
         });
-        this.router.navigate(['/home'])
       },
       error: (err) => {
         this.isLoggedIn = false;

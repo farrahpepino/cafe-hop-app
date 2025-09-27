@@ -24,6 +24,10 @@ namespace server.Models{
         public string Location {get;set;}
 
         [Required]
+        [MaxLength(10)]
+        public string Rate {get;set;}
+
+        [Required]
         [MaxLength(1000)]
         public string Content {get;set;}
 

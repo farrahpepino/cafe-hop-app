@@ -6,6 +6,7 @@ import { UserModel } from '../../Models/UserModel';
 import { Post } from '../../Services/post';
 import { PostModel } from '../../Models/PostModel';
 
+// reloads could be designed better, just needed to practice LINQ
 @Component({
   selector: 'app-home',
   imports: [Navbar, CommonModule, FormsModule, ReactiveFormsModule],
@@ -29,6 +30,7 @@ export class Home implements OnInit {
   postForm = new FormGroup({
     cafeName: new FormControl(''),
     location: new FormControl(''),
+    rate: new FormControl(''),
     content: new FormControl('')
   });
 
@@ -45,12 +47,14 @@ export class Home implements OnInit {
     var post: PostModel = {
       cafeName: this.postForm.value.cafeName!,
       userId: this.loggedInUser.id!,
+      rate: this.postForm.value.rate!.trim(),
       location: this.postForm.value.location!,
       content: this.postForm.value.content!
     }
 
     this.postService.createPost(post).subscribe({
-      next: (data)=> {
+      next: ()=> {
+        window.location.reload();
         this.showForm = false;
       },
       error: (err) => console.error('Failed to post', err.error?.errors || err)
@@ -59,12 +63,12 @@ export class Home implements OnInit {
 
   deletePost(id: string){
     this.postService.deletePost(id).subscribe({
+      next: ()=> {
+        window.location.reload();
+      },
       error: (err) => console.error('Failed to delete post', err.error?.errors || err)
     });
   }
 }
 
 
-
-
-//need to add refresh

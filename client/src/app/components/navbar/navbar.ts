@@ -11,7 +11,7 @@ export class Navbar {
   constructor(private router: Router){}
   logout(){
     localStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(['/'], {replaceUrl: true});
   }
 
 }

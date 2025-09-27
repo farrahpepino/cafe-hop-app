@@ -26,8 +26,10 @@ namespace server.Repositories{
                         Content = post.Content,
                         CreatedAt = post.CreatedAt,
                         UserId = post.UserId,
-                        Name = post.User.Name ?? string.Empty
+                        Name = post.User.Name ?? string.Empty,
+                        Rate = post.Rate 
                     })
+                    .OrderByDescending(post=> post.CreatedAt)
                     .ToListAsync();
         }
 

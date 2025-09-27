@@ -3,15 +3,20 @@
 <app-navbar/>
 <div class="container">
     <br>
+    <div class="flex-row subtext">Logged in as:  <strong>{{loggedInUser.email}}</strong> </div>
+    <br>
     <div class="post" *ngFor="let post of posts">
-        <strong>{{post.name}}</strong>
-        <button type="button" (click)="deletePost(post.id!)">delete post</button>
+        <div class="flex-row">
+            <strong>{{post.name}}</strong>
+            <button type="button" (click)="deletePost(post.id!)" class="bg-t subtext underline red">delete post</button>
+        </div>
         <div class="subtext">{{post.cafeName}}</div>
         <div class="subtext">{{post.location}}</div>
+        <div class="subtext red">Rating: {{post.rate || "0/10"}}</div>
+        <div class="subtext">{{post.createdAt | date: 'MMM dd, y \'at\' hh:mm a'}}</div>
         <br>
         <div>{{post.content}}</div>
-    </div>
-    
+    </div> 
 </div>
 </div>
 
@@ -26,9 +31,8 @@
     <form class="flex-col" (ngSubmit)="submitForm()" [formGroup]="postForm">
         <input required type="text" placeholder="Café name" formControlName="cafeName"/>
         <input required type="text" placeholder="Location" formControlName="location">
+        <input required type="text" placeholder="Rate (0-10)" formControlName="rate">
         <input required type="text" placeholder="Write a review" formControlName="content">
         <button [disabled]="postForm.invalid" type="submit">Post</button>
-        <!-- ratings here -->
     </form>
-
 </div>
