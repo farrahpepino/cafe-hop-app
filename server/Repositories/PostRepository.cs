@@ -18,7 +18,7 @@ namespace server.Repositories{
 
         public async Task<IEnumerable<PostDto>> GetAllPosts(){
             
-            var posts = (from p in _context.Posts 
+            var posts = await (from p in _context.Posts 
                         join u in _context.Users on p.UserId equals u.Id
                         orderby p.CreatedAt descending
                         select new PostDto {
@@ -30,13 +30,13 @@ namespace server.Repositories{
                             UserId = p.UserId,
                             Name = u.Name ?? string.Empty,
                             Rate = p.Rate 
-                        });
+                        }).ToListAsync();
 
             return posts;
         }
 
         public async Task DeletePost(string id){
-             var post = (from p in _context.Posts
+             var post = await (from p in _context.Posts
                         where p.Id == id
                         select p).FirstOrDefaultAsync();
              

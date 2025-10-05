@@ -10,25 +10,29 @@ namespace server.Repositories{
         }
 
         public async Task<UserDto> GetUser (string email){
-            return await _context.Users.Where(user=> user.Email == email)
-                                        .Select(user => new UserDto{
-                                            Id = user.Id,
-                                            Name = user.Name,
-                                            Email = user.Email,
-                                            CreatedAt = user.CreatedAt
-                                        })
-                                        .FirstOrDefaultAsync();
+            var user  = await (from u in _context.Users
+                        where u.Email == email
+                        select new UserDto{
+                            Id = u.Id,
+                            Name = u.Name,
+                            Email = u.Email,
+                            CreatedAt = u.CreatedAt
+                        }).FirstOrDefaultAsync();
+
+            return user;
         }
 
         public async Task<IEnumerable<UserDto>> GetAllUsers(){
-            return await  _context.Users
-                        .Select(user => new UserDto{
-                            Id = user.Id,
-                            Name = user.Name,
-                            Email = user.Email,
-                            CreatedAt = user.CreatedAt
-                        })
-                        .ToListAsync();
+
+             var users  = await (from u in _context.Users
+                        select new UserDto{
+                            Id = u.Id,
+                            Name = u.Name,
+                            Email = u.Email,
+                            CreatedAt = u.CreatedAt
+                        }).ToListAsync();
+
+            return users;
         }
     }
 }
