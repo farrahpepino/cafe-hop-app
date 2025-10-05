@@ -13,6 +13,7 @@ var secret = builder.Configuration["Jwt:Secret"];
 
 // add cors, use cors, add middleware, services and repositories
 
+
 builder.Services.AddCors(options=>{
     options.AddPolicy("AllowAngularDev",
         builder =>
@@ -71,6 +72,5 @@ app.UseMiddleware<GlobalExceptionHandler>();
 // app.UseHttpsRedirection();
 app.UseCors("AllowAngularDev"); 
 app.MapControllers();
-
 
 app.Run();

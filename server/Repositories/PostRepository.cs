@@ -17,24 +17,29 @@ namespace server.Repositories{
         }
 
         public async Task<IEnumerable<PostDto>> GetAllPosts(){
-            return await _context.Posts
-                    .Include(post => post.User)
-                    .Select(post => new PostDto{
-                        Id= post.Id,
-                        CafeName = post.CafeName,
-                        Location = post.Location,
-                        Content = post.Content,
-                        CreatedAt = post.CreatedAt,
-                        UserId = post.UserId,
-                        Name = post.User.Name ?? string.Empty,
-                        Rate = post.Rate 
-                    })
-                    .OrderByDescending(post=> post.CreatedAt)
-                    .ToListAsync();
+            
+            var posts = (from p in _context.Posts 
+                        join u in _context.Users on p.UserId equals u.Id
+                        orderby p.CreatedAt descending
+                        select new PostDto {
+                            Id= p.Id,
+                            CafeName = p.CafeName,
+                            Location = p.Location,
+                            Content = p.Content,
+                            CreatedAt = p.CreatedAt,
+                            UserId = p.UserId,
+                            Name = u.Name ?? string.Empty,
+                            Rate = p.Rate 
+                        });
+
+            return posts;
         }
 
         public async Task DeletePost(string id){
-             var post = await _context.Posts.FindAsync(id);
+             var post = (from p in _context.Posts
+                        where p.Id == id
+                        select p).FirstOrDefaultAsync();
+             
             if (post != null){
                 _context.Posts.Remove(post);
                 await _context.SaveChangesAsync();
